@@ -6,12 +6,16 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 import java.util.Optional;
 
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RequestCustomerDTO {
     private long requestId;
     private String customerName;
