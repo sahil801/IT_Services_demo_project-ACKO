@@ -37,7 +37,7 @@ public class RequestController {
             throw e;
         }
     }
-    @PostMapping("/addrequest")
+    @PostMapping("/request")
     public ResponseEntity<Long> addRequest(@Validated @RequestBody RequestCustomerDTO requestCustomerDTO){
         try {
             long id = requestService.addRequest(requestCustomerDTO);
