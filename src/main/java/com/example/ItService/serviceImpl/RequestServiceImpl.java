@@ -9,6 +9,7 @@ import com.example.ItService.mapper.RequestCustomerMapper;
 import com.example.ItService.model.Customer;
 import com.example.ItService.model.Request;
 import com.example.ItService.service.CustomerService;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import com.example.ItService.repository.RequestRepository;
 import com.example.ItService.service.RequestService;
@@ -26,7 +27,8 @@ public class RequestServiceImpl implements RequestService {
     private CustomerService customerService;
     @Override
     public GetRequestsResponceDTO getAllRequests() {
-        List<RequestCustomerDTO> data = requestRepository.findByIsDeleted(false)
+        List<RequestCustomerDTO> data = requestRepository.findByIsDeleted(false, Sort.by(Sort.Direction.DESC,
+                        "id"))
                 .stream()
                 .map(RequestCustomerMapper::EntityToRequestCustomerDTO)
                 .collect(Collectors.toList());
