@@ -53,6 +53,8 @@ public class RequestServiceImpl implements RequestService {
             Optional<Customer>  customer = customerService.findFirstByPhone(requestCustomerDTO.getCustomerPhone());
             if(customer.isPresent()){
                 newCustomer = customer.get();
+                newCustomer.setName(requestCustomerDTO.getCustomerName());
+                newCustomer.setEmail(requestCustomerDTO.getCustomerEmail());
             }else{
                 newCustomer = RequestCustomerMapper.toCustomer(requestCustomerDTO);
             }
